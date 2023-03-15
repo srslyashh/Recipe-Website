@@ -1,30 +1,29 @@
 import { useState, useEffect } from "react"
 
-function useRecipeSearch(query) {
+function useRecipeSearch(parameters) {
   const [ recipes, setRecipes ] = useState([])
   const [ loading, setLoading ] = useState(false)
   const [ error, setError ] = useState("")
 
   const KEY = process.env.REACT_APP_SPOONACULAR_API_KEY || console.error("SET YOUR API KEY IN .env!")
-  const DISABLE_API_CALLS = process.env.REACT_APP_DISABLE_API_CALLS || false
+  const DISABLE_API_CALLS = process.env.REACT_APP_DISABLE_API_CALLS === "true"
 
   useEffect(() => {
     let ignore = false
     const controller = new AbortController()
     async function fetchSearchResults() {
+      if (DISABLE_API_CALLS) return
       setLoading(true)
       let responseBody = {}
       /*
       Parse query array and iterate through for search parameters
       */
+      const searchParams = new URLSearchParams(parameters)
+      searchParams.append("apiKey", KEY)
+      const url = "https://api.spoonacular.com/recipes/complexSearch?" + searchParams.toString()
       try {
-        if (DISABLE_API_CALLS) return
-        console.log(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${KEY}`)
-        const response = await fetch(
-          `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${KEY}`,
-          { signal: controller.signal }
-        )
-        if(response.status !== 200){
+        const response = await fetch(url, { signal: controller.signal })
+        if(response.status !== 200) {
           setError(true)
         } else {
           responseBody = await response.json()
@@ -47,14 +46,14 @@ function useRecipeSearch(query) {
 
       }
     }
-    if (query) {
+    if (parameters) {
       fetchSearchResults()
     }
     return () => {
       ignore = true
       controller.abort()
     }
-  }, [ query, KEY, DISABLE_API_CALLS])
+  }, [ parameters, KEY, DISABLE_API_CALLS])
 
   return [recipes, loading, error]
 }

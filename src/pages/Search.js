@@ -7,14 +7,14 @@ import ErrorContainer from '../components/ErrorContainer'
 
 function Search() {
   const [ searchParams, setSearchParams ] = useSearchParams()
-  const [ searchQuery, setSearchQuery ] = useState(searchParams.get("search") || "")
-  const [ recipes, loading, error ] = useRecipeSearch(searchParams.get("search"))
+  const [ searchQuery, setSearchQuery ] = useState(searchParams.get("query") || "")
+  const [ recipes, loading, error ] = useRecipeSearch(searchParams)
 
   return (
     <>
       <form onSubmit={e => {
         e.preventDefault()
-        setSearchParams({ search: searchQuery })
+        setSearchParams({ query: searchQuery })
       }}>
         <input value={searchQuery} placeholder="Search by Recipe Name..." onChange={e => setSearchQuery(e.target.value)} />
         <button type="submit">Search</button>
