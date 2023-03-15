@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Routes, Route, useSearchParams, Navigate, useNavigate, NavLink} from "react-router-dom";
+import { Navbar, SearchBar, NavigationLinks, MenuIcon } from './components/NavBar'
 
 import Home from "./pages/Home.js"
 import About from "./pages/About.js"
@@ -8,25 +9,35 @@ import Search from "./pages/Search.js"
 import Recipe from "./pages/Recipe.js"
 import NotFound from "./pages/NotFound.js"
 
+import './components/fonts.css'
+
 function App() {
   const [inputQuery, setInputQuery] = useState("")
   const [ searchParams ] = useSearchParams()
   const navigate = useNavigate();
   return (
     <>
-      <div id="navBar">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="about">About</NavLink>
-        <NavLink to="categories">Categories</NavLink>
-        <form onSubmit={e => {
-          e.preventDefault()
-          navigate(`search/?q=${inputQuery}`)
-          setInputQuery("")
-        }}>
-          <input value={inputQuery} placeholder="Search by Recipe Name..." onChange={e => setInputQuery(e.target.value)} />
-          <button type="submit">Search</button>
-        </form>
-      </div>
+      <Navbar>
+        <NavigationLinks>
+          <li><NavLink to="/">HOME</NavLink></li>
+          <li><NavLink to="about">ABOUT</NavLink></li>
+          <li><NavLink to="categories">CATEGORIES</NavLink></li>
+        </NavigationLinks>
+        <MenuIcon>
+          <img src="/media/chef.png" alt=""></img>
+          <h1>Foodie</h1>
+        </MenuIcon>
+          <SearchBar>
+            <form onSubmit={e => {
+            e.preventDefault()
+            navigate(`search/?q=${inputQuery}`)
+            setInputQuery("")
+          }}>
+            <input value={inputQuery} placeholder="Search Recipe" onChange={e => setInputQuery(e.target.value)} />
+            <button type="submit">&#128269;</button>
+            </form>
+          </SearchBar>
+      </Navbar>
 
       <Routes>
         <Route index element={<Home/>} />

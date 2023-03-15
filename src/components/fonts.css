@@ -1,0 +1,20 @@
+/*
+    Cutive Mono: font for menu bar.
+        > font-family: 'Cutive Mono', monospace;
+    Calistoga : Header in individual recipes view
+        > font-family: 'Calistoga', cursive;
+    Montserrat: Normal texts, page headers
+        > font-family: 'Montserrat Alternates', sans-serif;
+    Hepta Slab: Header font in Banner and banner button in home.
+        > font-family: 'Hepta Slab', serif;
+    Titan one: Header font in Banner for homepage.
+        > font-family: 'Titan One', cursive;
+    
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Cedarville+Cursive&family=Cutive+Mono&family=Gilda+Display&family=Gloock&family=Hepta+Slab:wght@300&family=Montserrat+Alternates&family=Montserrat:wght@200;300;400&family=Pacifico&family=Tilt+Warp&family=Titan+One&family=Ultra&display=swap');
+
+
+body{
+    margin: 0px;
+}

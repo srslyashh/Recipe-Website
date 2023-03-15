@@ -1,4 +1,13 @@
+import { Banner, ContentContainer } from '../components/Webpages'
+
 function Categories() {
-  return <h1>Categories</h1>
+  return(
+    <>
+      <Banner 
+        url="/media/categoryBanner.webp"
+        title="Categories"/>
+    </>
+  )
+
 }
 export default Categories

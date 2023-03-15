@@ -1,4 +1,17 @@
+import 
+{ 
+  Banner
+} 
+from '../components/Webpages'
+
+
 function Home() {
-  return <h1>Home</h1>
+  return(
+    <div>
+      <Banner home url="/media/homeBanner_B.jpg"
+                  page="about"
+                  buttonText="Explore recipes"/>
+    </div>
+  ) 
 }
 export default Home
