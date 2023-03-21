@@ -5,7 +5,8 @@ import useRecipeSearch from '../data/useRecipeSearch'
 import Spinner from '../components/Spinner'
 import ErrorContainer from '../components/ErrorContainer'
 import { Banner, ContentContainer } from '../components/Webpages'
-import { SearchBar } from '../components/NavBar'
+import { SearchBar, FlexQueries, FlexItem } from '../components/NavBar'
+import { ResultCard, FlexMenu } from '../components/ResultCard'
 
 // All form fields
 const formNames = ["query", "cuisine", "diet", "intolerances", 
@@ -51,30 +52,30 @@ function Search() {
             // Keep the URL cleaner by only including non-empty form attributes
             setSearchParams(filterEmptyAttributes(formValues))
           }}>
-            {formNames.map(name =>(
-              <>
-                <label>
-                  {name}:
-                  <input key={name} name={name} value={formValues[name]} placeholder={name} onChange={handleInputChange} />
-                </label>
-                <br/>
-              </>
-            ))}
-            <button type="submit">&#128269;</button>
+              {formNames.map(name =>(
+                <>
+                    <label>
+                      {name}:
+                      <input key={name} name={name} value={formValues[name]} placeholder={name} onChange={handleInputChange} />
+                    </label>
+                    <br/>
+                </>
+              ))}
+              <button type="submit">&#128269;</button>
           </form>
         </SearchBar>
 
         {error && <ErrorContainer>Error: Try double checking your spelling!</ErrorContainer>}
         {loading ? <Spinner /> : (
-          <div>
+          <FlexMenu>
             {recipes.map(recipe => (
-              <div key={recipe.id}>
-                <p>{recipe.id}</p>
-                <p>{recipe.title}</p>
-                <img src={recipe.image} alt={recipe.title} />
-              </div>
+              <ResultCard
+                key={recipe.id}
+                title={recipe.title}
+                url={recipe.image}
+              />
             ))}
-          </div>
+          </FlexMenu>
         )}
       </ContentContainer>
     </>

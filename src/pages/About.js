@@ -21,10 +21,10 @@ function About() {
             recipe="Lasagna"
           />
           <ProfileCards
-            url="/media/dummy-pic.jpeg"
-            name="Dummy data"
-            work="front-end"
-            recipe="Lasagna"
+            url="/media/ashley_k.png"
+            name="Kathleen Ashley"
+            work="Front-end development"
+            recipe="Chicken and waffles!"
           />
           <ProfileCards
             url="/media/dummy-pic.jpeg"
