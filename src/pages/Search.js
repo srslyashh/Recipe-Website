@@ -31,6 +31,7 @@ function Search() {
   const [ searchParams, setSearchParams ] = useSearchParams()
   const [ formValues, setFormValues ] = useState(mapParamsToSearchParams(formNames, searchParams))
   const [ recipes, loading, error ] = useRecipeSearch(searchParams)
+  const [ show, setShow ] = useState(false)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -52,15 +53,33 @@ function Search() {
             // Keep the URL cleaner by only including non-empty form attributes
             setSearchParams(filterEmptyAttributes(formValues))
           }}>
-              {formNames.map(name =>(
-                <>
+              {!show && <>
                     <label>
-                      {name}:
-                      <input key={name} name={name} value={formValues[name]} placeholder={name} onChange={handleInputChange} />
+                      Search:
+                      <input key={formNames[0]} name={formNames[0]} value={formValues[formNames[0]]} placeholder={formNames[0]} onChange={handleInputChange} />
                     </label>
+                    <button onClick={e =>{
+                      setShow(true)
+                    }}>Advanced Search</button>
                     <br/>
+                    
+                </>}
+              {show && 
+                <>
+                  {formNames.map(name =>(
+                    <>  
+                      <label>
+                        {name}:
+                        <input key={name} name={name} value={formValues[name]} placeholder={name} onChange={handleInputChange} />
+                      </label>
+                      <br/>
+                    </>
+                  ))}
+                  <button onClick={e =>{
+                    setShow(false)
+                  }}>X</button>
                 </>
-              ))}
+              }
               <button type="submit">&#128269;</button>
           </form>
         </SearchBar>
