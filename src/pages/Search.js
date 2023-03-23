@@ -89,6 +89,7 @@ function Search() {
           <FlexMenu>
             {recipes.map(recipe => (
               <ResultCard
+                id={recipe.id}
                 key={recipe.id}
                 title={recipe.title}
                 url={recipe.image}

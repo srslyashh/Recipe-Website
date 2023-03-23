@@ -7,6 +7,10 @@ export const FlexMenu = styled.div`
 `
 
 const MenuCard = styled.div`
+    a, a:hover, a:visited, a:active {
+        color: inherit;
+        text-decoration: none;
+    }
     @media(min-width: 390px) and (max-width: 790px)
     {
         width: 300px;
@@ -66,9 +70,11 @@ const MenuCard = styled.div`
 export function ResultCard(props)
 {
     return(
-        <MenuCard>
-            <img src={props.url} alt=""></img>
-            <h1>{props.title}</h1>
-        </MenuCard>
+          <MenuCard>
+        <NavLink to={`/recipe/${props.id}`}>
+              <img src={props.url} alt=""></img>
+              <h1>{props.title}</h1>
+        </NavLink>
+          </MenuCard>
     )
 }
