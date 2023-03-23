@@ -67,7 +67,7 @@ export function CategoryCards(props)
 {
     return(
         <FlexCategory>
-            <NavLink to={props.name}>
+            <NavLink to={`/search/?cuisine=${props.name}`}>
                 <Card>
                     <img src={props.url} alt=""></img>
                     <h1>{props.name}</h1>
