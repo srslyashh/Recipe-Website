@@ -20,16 +20,25 @@ const List = styled.ol`
 `
 
 const InstructionsDiv = styled.div`
+  margin-top: 35px;
+  background-color: #faf7f0;
+  border: 1px solid #faf7f0;
+  border-radius: 5px;
+  padding: 10px 10px 10px 20px;
+  margin-bottom: 120px;
 @media(min-width: 390px) and (max-width: 790px)
 {
     position: relative;
-    
+    margin-right: 200px;
+    top: -700px;
+    left: 25px;
 }
 @media(min-width: 800px)
 {
     position: relative;
     left: 80px;
     top: 10px;
+    margin-right:510px;
     
 }
 
@@ -41,24 +50,20 @@ h1{
 `
 
 const ListItem = styled.li`
-    padding: 4px;
-    position: relative;
-    left: 50px;
-    margin-right: 550px;
+@media(min-width: 390px) and (max-width: 790px)
+{
+    font-size: 14px;
     font-family: 'Open Sans', sans-serif;
+    margin-right: 20px;
+}
 
-    @media (min-height: ${breakpoints.sm + 1}px) and (max-height: ${breakpoints.med}px) {
-        font-size: 18px;
-    }
-    @media (max-height: ${breakpoints.sm}px) {
-        font-size: 20px;
-    }
-    @media (min-width: ${breakpoints.sm + 1}px) and (max-width: ${breakpoints.med}px) {
-        font-size: 20px;
-    }
-    @media (max-width: ${breakpoints.sm}px) {
-        font-size: 32px;
-    }
+@media(min-width: 800px)
+{
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    left: 25px;
+}
 `
 
 function InstructionsList(props) {

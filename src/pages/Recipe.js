@@ -28,6 +28,8 @@ const Frame = styled.iframe`
     position: relative;
     ${'' /* left: 300px; */}
     display:block;
+    top: 700px;
+    left: -75px;
     
   }
   @media(min-width: 800px)
@@ -38,7 +40,7 @@ const Frame = styled.iframe`
     width:500px;
     height:700px;
     position: absolute;
-    left: 1000px;
+    left: 930px;
     top: 650px;
     ${'' /* left: 850px; */}
   }

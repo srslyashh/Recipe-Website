@@ -191,6 +191,7 @@ const RecipeHeader = styled.div`
         overflow: visible;
         img{
             width: 100%;
+            height: 200px;
             align: center;
             object-fit: fill;
         }
@@ -201,15 +202,16 @@ const RecipeHeader = styled.div`
             vertical-align: baseline;
             font-family: 'Hepta Slab', serif;
             color: black;
-            font-size: 30px;
+            font-size: 15px;
+            margin-right: 150px;
         }
         .bottomRow{
             display: flex;
             width: 100%;
-            justify-content: center;
+            flex-wrap : wrap;
+            margin-right: 100px;
         }
         .box{
-            display: inline-block;
             margin: 10px
         }
         h2{
@@ -217,10 +219,16 @@ const RecipeHeader = styled.div`
             vertical-align: baseline;
             font-family: 'Hepta Slab', serif;
             color: black;
-            font-size: 20px;
+            font-size: 12px;
+            position: relative;
+            left: 60px;
+            top: -10px;
+
         }
         h3{
             display: none;
+            position: relative;
+            top: 100px;
         }
         
         

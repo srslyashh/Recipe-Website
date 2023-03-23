@@ -7,6 +7,9 @@ const List = styled.ul`
 `
 
 const IngredientsDiv = styled.div`
+  background-color: #faf7f0;
+  border: 1px solid #faf7f0;
+  border-radius: 5px;
 
 h1{
   font-family: 'Hepta Slab', serif;
@@ -18,12 +21,16 @@ h1{
     position: relative;
     top: 10px;
     left: 25px;
+    margin-right: 200px;
+    padding: 10px 15px 10px 20px;
 }
 @media(min-width: 800px)
 {
     position: relative;
     top: 15px;
     left: 80px;
+    margin-right: 510px;
+    padding: 10px 10px 10px 20px;
 }
 `
 
@@ -32,6 +39,7 @@ const ListItem = styled.li`
 {
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
+    margin-right: 20px;
 }
 
 @media(min-width: 800px)

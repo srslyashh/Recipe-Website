@@ -29,10 +29,18 @@ function mapParamsToSearchParams(stateParams, searchParams) {
 }
 
 const AdvancedSearch = styled.button `
-  position: relative;
-  left: 15px;
-  top: -10px;
-  background-color: #fffaeb;
+  @media(min-width: 800px)
+  {
+    position: relative;
+    left: 15px;
+    top: -10px;
+    background-color: #fffaeb;
+  }
+
+  @media(min-width: 390px) and (max-width: 790px)
+  {
+    position: relative;
+  }
   
   h1{
     font-size: 13px;
@@ -41,24 +49,58 @@ const AdvancedSearch = styled.button `
 `
 
 const SearchIcon = styled.button`
-  position: relative;
-  left: 400px;
-  top: -50px;
+  @media(min-width: 800px)
+  {
+    position: relative;
+    left: 400px;
+    top: -50px;
+  }
+
+  @media(min-width: 390px) and (max-width: 790px)
+  {
+    position: relative;
+    left: 225px;
+    top: -90px;
+  }
 `
 
 const SecondForm = styled.div`
-  position: relative;
-  left: -100px;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 10px;
+  @media(min-width: 800px)
+  {
+    position: relative;
+    left: -100px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  @media(min-width: 390px) and (max-width: 790px)
+  {
+    position: relative;
+    left: 0px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px 100px 15px 15px;
+
+    input{
+      width: 110px;
+    }
+  }
 `
 
 const XButton = styled.div`
-  position: relative;
-  top: -270px;
-  left: 500px;
-  font-size: 23px;
+  @media(min-width: 800px)
+  {
+    position: relative;
+    top: -270px;
+    left: 500px;
+    font-size: 23px;
+  }
+  @media(min-width: 390px) and (max-width: 790px)
+  {
+    position: relative;
+    top: -400px;
+    left: 165px;
+  }
 `
 
 function Search() {
