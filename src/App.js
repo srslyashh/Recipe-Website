@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound.js"
 import NavBar from "./components/NavBar.js"
 
 import './components/fonts.css'
+import CategoryResults from "./pages/CategoryResults.js"
 
 function App() {
   return (
@@ -20,8 +21,9 @@ function App() {
           <Route path="home" element={<Navigate to="/"/>} />
           <Route path="about" element={<About/>} />
           <Route path="categories" element={<Categories/>} />
+          <Route path="categories/:category" element={<CategoryResults/>} />
           <Route path="search" element={<Search/>} />
-          <Route path="recipe" element={<Recipe/>} />
+          <Route path="recipe/:id" element={<Recipe/>} />
           <Route path="404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="404" />} />
         </Routes>

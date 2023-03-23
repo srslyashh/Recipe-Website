@@ -181,6 +181,82 @@ const NormalHeader = styled.div`
     }
 `
 
+const RecipeHeader = styled.div`
+    @media(min-width: 390px) and (max-width: 790px)
+    {
+        position: relative;
+        top: 0px;
+
+        img{
+            height: 200px;
+            width: 100%;
+            object-fit: fill;
+        }
+
+        h1{
+            position: absolute;
+            top: 50px;
+            left: 150px;
+            font-family: 'Hepta Slab', serif;
+            color: white;
+            font-size: 30px;
+        }
+        h2{
+            position: absolute;
+            top: 140px;
+            left: 75px;
+            font-family: 'Hepta Slab', serif;
+            color: white;
+            font-size: 24px;
+        }
+        h3{
+            position: absolute;
+            top: 140px;
+            right: 60px;
+            font-family: 'Hepta Slab', serif;
+            color: white;
+            font-size: 24px;
+        }
+    }
+
+    @media(min-width: 800px)
+    {
+        position: relative;
+        top: 0px;
+
+        img{
+            height: 500px;
+            width: 100%;
+            object-fit: fill;
+        }
+
+        h1{
+            position: absolute;
+            top: 150px;
+            left: 265px;
+            font-family: 'Hepta Slab', serif;
+            color: white;
+            font-size: 50px;
+        }
+        h2{
+            position: absolute;
+            top: 400px;
+            left: 50px;
+            font-family: 'Hepta Slab', serif;
+            color: white;
+            font-size: 24px;
+        }
+        h3{
+            position: absolute;
+            top: 400px;
+            right: 200px;
+            font-family: 'Hepta Slab', serif;
+            color: white;
+            font-size: 24px;
+        }
+    }
+`
+
 /*
     Gives margin to each page.
 */
@@ -213,6 +289,15 @@ export function Banner(props)
                     <h3><NavLink to={props.page}>{props.buttonText}</NavLink></h3>
                 </BannerButton>
             </div>
+        )
+    } else if(props.recipe) {
+        return(
+            <RecipeHeader>
+                <img src={props.recipe.image} alt=""></img>
+                <h1>{props.recipe.title}</h1>
+                <h2>Author: {props.recipe.sourceName}</h2>
+                <h3>Health Score: {props.recipe.healthScore}</h3>
+            </RecipeHeader>
         )
     }
     else

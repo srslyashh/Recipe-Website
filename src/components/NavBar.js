@@ -205,7 +205,6 @@ function NavBar() {
             <li><NavLink to="about">ABOUT</NavLink></li>
             <li><NavLink to="categories">CATEGORIES</NavLink></li>
             <li><NavLink to="search">SEARCH</NavLink></li>
-            <li><NavLink to="recipe">RECIPE</NavLink></li>
         </NavigationLinks>
         <MenuIcon>
           <img src="/media/chef.png" alt=""></img>

@@ -1,17 +1,14 @@
-import { CategoryCards } from '../components/CategoryCards'
-import { Banner, ContentContainer } from '../components/Webpages'
-import categories from '../data/categories.json'
-import styled from '@emotion/styled/macro'
+import styled from '@emotion/styled'
 
 const breakpoints = {
-  sm: 768,
-  med: 1024
+    sm: 768,
+    med: 1024
 }
 
 const List = styled.ol`
     padding: 5px;
-    columns: 4;
-    list-style-type:none
+    columns: 1;
+
 `
 
 const ListItem = styled.li`
@@ -30,24 +27,19 @@ const ListItem = styled.li`
     }
 `
 
-function Categories() {
-  return(
-    <>
-      <Banner 
-        url="/media/categoryBanner.webp"
-        title="Categories"/>   
+function InstructionsList(props) {
+    return (
+      <>
+        <h1>Instructions:</h1>
         <List>
-          {categories.map((category, index) => (
+          {props.instructions.steps.map((instruction, index) => (
             <ListItem key={index}>
-              <CategoryCards
-                  url={category.img}
-                  name={category.name}
-              />
+                {instruction.step}
             </ListItem>
           ))}
         </List>
-    </>
+      </>
   )
-
 }
-export default Categories
+
+export default InstructionsList

@@ -27,10 +27,10 @@ function About() {
             recipe="Chicken and waffles!"
           />
           <ProfileCards
-            url="/media/dummy-pic.jpeg"
-            name="Dummy data"
-            work="front-end"
-            recipe="Lasagna"
+            url="/media/jermaine.jpg"
+            name="Jermaine Lara"
+            work="Front-end development"
+            recipe="Homemade Guacamole"
           />
       </ContentContainer>
     </>
