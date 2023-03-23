@@ -9,9 +9,12 @@ const breakpoints = {
 }
 
 const List = styled.ol`
-    padding: 5px;
+    padding: 5px 10px 5px 10px;
     columns: 4;
-    list-style-type:none
+    list-style-type:none;
+    margin-left: 5%;
+    margin-right: 5%;
+
 `
 
 const ListItem = styled.li`

@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router-dom'
 import { useState } from 'react'
+import styled from '@emotion/styled'
 
 import useRecipeSearch from '../data/useRecipeSearch'
 import Spinner from '../components/Spinner'
@@ -26,6 +27,39 @@ function mapParamsToSearchParams(stateParams, searchParams) {
     }
   }, {})
 }
+
+const AdvancedSearch = styled.button `
+  position: relative;
+  left: 15px;
+  top: -10px;
+  background-color: #fffaeb;
+  
+  h1{
+    font-size: 13px;
+    font-family: 'Cutive Mono', monospace;
+  }
+`
+
+const SearchIcon = styled.button`
+  position: relative;
+  left: 400px;
+  top: -50px;
+`
+
+const SecondForm = styled.div`
+  position: relative;
+  left: -100px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+`
+
+const XButton = styled.div`
+  position: relative;
+  top: -270px;
+  left: 500px;
+  font-size: 23px;
+`
 
 function Search() {
   const [ searchParams, setSearchParams ] = useSearchParams()
@@ -58,14 +92,16 @@ function Search() {
                       Search:
                       <input key={formNames[0]} name={formNames[0]} value={formValues[formNames[0]]} placeholder={formNames[0]} onChange={handleInputChange} />
                     </label>
-                    <button onClick={e =>{
+                    <AdvancedSearch onClick={e =>{
                       setShow(true)
-                    }}>Advanced Search</button>
+                    }}>
+                      <h1> Advanced Search </h1>
+                    </AdvancedSearch>
                     <br/>
                     
                 </>}
               {show && 
-                <>
+                <SecondForm>
                   {formNames.map(name =>(
                     <>  
                       <label>
@@ -75,12 +111,12 @@ function Search() {
                       <br/>
                     </>
                   ))}
-                  <button onClick={e =>{
+                  <XButton onClick={e =>{
                     setShow(false)
-                  }}>X</button>
-                </>
+                  }}>X</XButton>
+                </SecondForm>
               }
-              <button type="submit">&#128269;</button>
+              <SearchIcon type="submit">&#128269;</SearchIcon>
           </form>
         </SearchBar>
 
@@ -91,6 +127,7 @@ function Search() {
               <ResultCard
                 key={recipe.id}
                 title={recipe.title}
+                id={recipe.id}
                 url={recipe.image}
               />
             ))}

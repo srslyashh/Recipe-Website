@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { NavLink } from "react-router-dom"
+import useRecipeSearch from '../data/useRecipeSearch'
 
 export const FlexMenu = styled.div`
     display: flex;
@@ -7,6 +8,10 @@ export const FlexMenu = styled.div`
 `
 
 const MenuCard = styled.div`
+    a{
+        color: black;
+        text-decoration: none;
+    }
     @media(min-width: 390px) and (max-width: 790px)
     {
         width: 300px;
@@ -65,10 +70,14 @@ const MenuCard = styled.div`
 
 export function ResultCard(props)
 {
+
+    const linkName = "/recipe/" + props.id
     return(
         <MenuCard>
             <img src={props.url} alt=""></img>
-            <h1>{props.title}</h1>
+            <h1>
+                <NavLink to={linkName}> {props.title}</NavLink>
+            </h1>
         </MenuCard>
     )
 }
