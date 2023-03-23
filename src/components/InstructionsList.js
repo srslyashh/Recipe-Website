@@ -20,6 +20,13 @@ const List = styled.ol`
 `
 
 const InstructionsDiv = styled.div`
+padding: 25px;
+margin: 25px;
+background: lightgrey;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+border-radius: 25px;
 @media(min-width: 390px) and (max-width: 790px)
 {
     position: relative;
@@ -55,7 +62,7 @@ function InstructionsList(props) {
         <List>
           {props.instructions.map((instruction, index) => (
             <ListItem key={index}>
-                {`${instruction.number}. ${instruction.step}`}
+                {`${instruction.step}`}
             </ListItem>
           ))}
         </List>

@@ -182,109 +182,89 @@ const NormalHeader = styled.div`
 `
 
 const RecipeHeader = styled.div`
-    @media(min-width: 390px) and (max-width: 790px)
+    ${'' /* background-image: ${props => props.image}; */}
+    @media(min-width: 390px) and (max-width: 799px)
     {
         position: relative;
         top: 0px;
+        background: #F8DE7F;
 
         img{
-            height: 200px;
             width: 100%;
+            align: center;
             object-fit: fill;
         }
 
         h1{
-            position: absolute;
-            top: 50px;
-            left: 150px;
+            position: relative;
+            text-align: center;
+            vertical-align: baseline;
             font-family: 'Hepta Slab', serif;
-            color: white;
+            color: black;
             font-size: 30px;
         }
+        .bottomRow{
+            display: flex;
+            width: 100%
+        }
+        .box{
+            display: inline-block;
+        }
         h2{
-            position: absolute;
-            top: 140px;
-            left: 75px;
+            text-align: center;
+            vertical-align: baseline;
             font-family: 'Hepta Slab', serif;
             color: black;
-            font-size: 24px;
+            font-size: 20px;
         }
         h3{
-            position: absolute;
-            top: 140px;
-            right: 60px;
-            font-family: 'Hepta Slab', serif;
-            color: black;
-            font-size: 24px;
+            display: none;
         }
-        h4{
-            position: absolute;
-            top: 400px;
-            right: 200px;
-            font-family: 'Hepta Slab', serif;
-            color: black;
-            font-size: 24px;
-        }
-        h5{
-            position: absolute;
-            top: 400px;
-            right: 500px;
-            font-family: 'Hepta Slab', serif;
-            color: black;
-            font-size: 24px;
-        }
+        
+        
     }
 
     @media(min-width: 800px)
     {
         position: relative;
         top: 0px;
+        background: #F8DE7F;
 
         img{
-            height: 500px;
+            height: 400px;
             width: 100%;
             object-fit: fill;
         }
 
         h1{
-            position: absolute;
-            top: 150px;
-            left: 265px;
+            position: relative;
+            text-align: center;
+            vertical-align: baseline;
             font-family: 'Hepta Slab', serif;
-            color: white;
-            font-size: 50px;
+            color: black;
+            font-size: 30px;
+        }
+        .bottomRow{
+            display: flex;
+            width: 100%
+        }
+        .box{
+            display: inline-block;
+            width: 25%
         }
         h2{
-            position: absolute;
-            top: 400px;
-            left: 50px;
+            text-align: center;
+            vertical-align: baseline;
             font-family: 'Hepta Slab', serif;
             color: black;
-            font-size: 24px;
+            font-size: 20px;
         }
         h3{
-            position: absolute;
-            top: 400px;
-            right: 200px;
+            text-align: center;
+            vertical-align: baseline;
             font-family: 'Hepta Slab', serif;
             color: black;
-            font-size: 24px;
-        }
-        h4{
-            position: absolute;
-            top: 400px;
-            right: 650px;
-            font-family: 'Hepta Slab', serif;
-            color: black;
-            font-size: 24px;
-        }
-        h5{
-            position: absolute;
-            top: 400px;
-            right: 500px;
-            font-family: 'Hepta Slab', serif;
-            color: black;
-            font-size: 24px;
+            font-size: 20px;
         }
     }
 `
@@ -325,12 +305,24 @@ export function Banner(props)
     } else if(props.recipe) {
         return(
             <RecipeHeader>
-                <img src={props.recipe.image} alt=""></img>
-                <h1>{props.recipe.title}</h1>
-                <h2>Author: {props.recipe.sourceName}</h2>
-                <h3>Health Score: {props.recipe.healthScore}</h3>
-                <h4>Cook Minutes: {props.recipe.cookingMinutes}</h4>
-                <h5>Servings: {props.recipe.servings}</h5>
+                <img src={props.recipe.image} alt={props.recipe.title}/>
+                <div className='topRow'>
+                    <h1>{props.recipe.title}</h1>
+                </div>
+                <div className='bottomRow'>
+                    <div className="box">
+                        <h2>Author: {props.recipe.sourceName}</h2>
+                    </div>
+                    <div className="box">
+                        <h3>Health Score: {props.recipe.healthScore}</h3>
+                    </div>
+                    <div className="box">
+                        <h3>Cook Minutes: {props.recipe.cookingMinutes}</h3>
+                    </div>
+                    <div className="box">
+                        <h3>Servings: {props.recipe.servings}</h3>
+                    </div> 
+                </div>
             </RecipeHeader>
         )
     }

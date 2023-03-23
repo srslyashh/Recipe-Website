@@ -10,9 +10,9 @@ function About() {
         <PageHeader>About Us</PageHeader>
           <ProfileCards
             url="/media/dummy-pic.jpeg"
-            name="Dummy data"
-            work="front-end"
-            recipe="Lasagna"
+            name="Jordan Peterson"
+            work="API Setup & Hooks, Submission Forms"
+            recipe="Vodka Pasta"
           />
           <ProfileCards
             url="/media/ethan.jpg"

@@ -7,6 +7,13 @@ const List = styled.ul`
 `
 
 const IngredientsDiv = styled.div`
+padding: 25px;
+margin: 25px;
+background: lightgrey;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+border-radius: 25px;
 @media(min-width: 390px) and (max-width: 790px)
 {
     position: relative;

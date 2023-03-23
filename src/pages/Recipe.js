@@ -24,16 +24,19 @@ const Frame = styled.iframe`
     width:500px;
     height:700px;
     position: relative;
-    left: 300px;
+    ${'' /* left: 300px; */}
+    display:block;
+    
   }
   @media(min-width: 800px)
   {
     overflow:hidden;
+    display:block;
     border:none;
     width:500px;
     height:700px;
     position: relative;
-    left: 850px;
+    ${'' /* left: 850px; */}
   }
 `
 
@@ -45,18 +48,23 @@ function Recipe() {
   // const [ instructions, loading, error] = useRecipe(id);
   const KEY = process.env.REACT_APP_SPOONACULAR_API_KEY || console.error("SET YOUR API KEY IN .env!")
   console.log(steps)
-  
+
   return(
     <RecipeDiv>
       {(loadingInfo || loadingSteps) ? <Spinner/> : (
         <>
-        <Banner 
-          recipe={info}/>  
-        <IngredientsList ingredients={ingredients}/>
-        <Frame src={`https://api.spoonacular.com/recipes/${id}/nutritionLabel?apiKey=${KEY}`} title="Nutrition Facts"/>
-        {steps && steps.length !== 0 && 
-          <InstructionsList instructions={steps[0].steps}/>
-        }
+          <Banner 
+            recipe={info}/>
+          <div style={{display:'flex', overflow:'wrap'}}>
+            <IngredientsList ingredients={ingredients}/>
+            <div>
+              {steps && steps.length !== 0 && 
+                <InstructionsList instructions={steps[0].steps}/>
+              }
+            </div>
+            <Frame src={`https://api.spoonacular.com/recipes/${id}/nutritionLabel?apiKey=${KEY}`} title="Nutrition Facts"/>
+          </div>  
+          
         </>
       )}
     </RecipeDiv>
