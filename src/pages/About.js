@@ -15,10 +15,10 @@ function About() {
             recipe="Lasagna"
           />
           <ProfileCards
-            url="/media/dummy-pic.jpeg"
-            name="Dummy data"
-            work="front-end"
-            recipe="Lasagna"
+            url="/media/ethan.jpg"
+            name="Ethan Barker"
+            work="API integration, routing"
+            recipe="Pesto Pasta"
           />
           <ProfileCards
             url="/media/ashley_k.png"
