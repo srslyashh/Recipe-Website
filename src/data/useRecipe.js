@@ -18,7 +18,7 @@ function useRecipe(id) {
       /*
       Parse query array and iterate through for search parameters
       */
-      const url = `https://api.spoonacular.com/recipes/${id}/analyzedInstructions`
+      const url = `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${KEY}`
       try {
         const response = await fetch(url, { signal: controller.signal })
         if(response.status !== 200) {
@@ -39,7 +39,7 @@ function useRecipe(id) {
       }
 
       if (!ignore) {
-        setInstructionsSet(responseBody.results || [])
+        setInstructionsSet(responseBody || [])
         setLoading(false)
 
       }

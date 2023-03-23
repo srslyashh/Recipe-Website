@@ -55,7 +55,7 @@ function InstructionsList(props) {
         <List>
           {props.instructions.map((instruction, index) => (
             <ListItem key={index}>
-                {instruction.step}
+                {`${instruction.number}. ${instruction.step}`}
             </ListItem>
           ))}
         </List>
