@@ -9,7 +9,7 @@ function About() {
       <ContentContainer>
         <PageHeader>About Us</PageHeader>
           <ProfileCards
-            url="/media/dummy-pic.jpeg"
+            url="/media/jordan.jpg"
             name="Jordan Peterson"
             work="API Setup & Hooks, Submission Forms"
             recipe="Vodka Pasta"

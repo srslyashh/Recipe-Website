@@ -9,7 +9,7 @@ function Home() {
   return(
     <div>
       <Banner home url="/media/homeBanner_B.jpg"
-                  page="about"
+                  page="search"
                   buttonText="Explore recipes"/>
     </div>
   ) 

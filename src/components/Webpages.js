@@ -188,7 +188,7 @@ const RecipeHeader = styled.div`
         position: relative;
         top: 0px;
         background: #F8DE7F;
-
+        overflow: visible;
         img{
             width: 100%;
             align: center;
@@ -205,10 +205,12 @@ const RecipeHeader = styled.div`
         }
         .bottomRow{
             display: flex;
-            width: 100%
+            width: 100%;
+            justify-content: center;
         }
         .box{
             display: inline-block;
+            margin: 10px
         }
         h2{
             text-align: center;
@@ -246,11 +248,12 @@ const RecipeHeader = styled.div`
         }
         .bottomRow{
             display: flex;
-            width: 100%
+            width: 100%;
+            justify-content: center;
         }
         .box{
             display: inline-block;
-            width: 25%
+            margin: 10px
         }
         h2{
             text-align: center;
@@ -317,10 +320,7 @@ export function Banner(props)
                         <h3>Health Score: {props.recipe.healthScore}</h3>
                     </div>
                     <div className="box">
-                        <h3>Cook Minutes: {props.recipe.cookingMinutes}</h3>
-                    </div>
-                    <div className="box">
-                        <h3>Servings: {props.recipe.servings}</h3>
+                        <h2>Servings: {props.recipe.servings}</h2>
                     </div> 
                 </div>
             </RecipeHeader>

@@ -7,25 +7,23 @@ const List = styled.ul`
 `
 
 const IngredientsDiv = styled.div`
-padding: 25px;
-margin: 25px;
-background: lightgrey;
-border-style: solid;
-border-color: black;
-border-width: 1px;
-border-radius: 25px;
+
+h1{
+  font-family: 'Hepta Slab', serif;
+  font-size: 25px;
+}
+
 @media(min-width: 390px) and (max-width: 790px)
 {
     position: relative;
     top: 10px;
     left: 25px;
-    
 }
 @media(min-width: 800px)
 {
     position: relative;
-    top: 10px;
-    left: 25px;
+    top: 15px;
+    left: 80px;
 }
 `
 
@@ -33,11 +31,15 @@ const ListItem = styled.li`
 @media(min-width: 390px) and (max-width: 790px)
 {
     font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 @media(min-width: 800px)
 {
-    font-size: 22px;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    left: 25px;
 }
 `
 
