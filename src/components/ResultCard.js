@@ -73,20 +73,11 @@ export function ResultCard(props)
 
     const linkName = "/recipe/" + props.id
     return(
-<<<<<<< HEAD
         <MenuCard>
             <img src={props.url} alt=""></img>
             <h1>
                 <NavLink to={linkName}> {props.title}</NavLink>
             </h1>
         </MenuCard>
-=======
-          <MenuCard>
-        <NavLink to={`/recipe/${props.id}`}>
-              <img src={props.url} alt=""></img>
-              <h1>{props.title}</h1>
-        </NavLink>
-          </MenuCard>
->>>>>>> fdf8b29e23ca85dacac4f13f35ed05bcdcfc4edf
     )
 }
