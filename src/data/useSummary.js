@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react"
 
-function useRecipeInformation(id) {
-  const [ info, setInfo ] = useState({})
-  const [ ingredients, setIngredients ] = useState([])
+function useSummary(id) {
+  const [ summary, setSummary ] = useState({})
   const [ loading, setLoading ] = useState(false)
   const [ error, setError ] = useState("")
 
@@ -12,11 +11,14 @@ function useRecipeInformation(id) {
   useEffect(() => {
     let ignore = false
     const controller = new AbortController()
-    async function fetchRecipeInfo() {
+    async function fetchSummary() {
       if (DISABLE_API_CALLS) return
       setLoading(true)
       let responseBody = {}
-      const url = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${KEY}`
+      /*
+      Parse query array and iterate through for search parameters
+      */
+      const url = `https://api.spoonacular.com/recipes/${id}/summary?apiKey=${KEY}`
       try {
         const response = await fetch(url, { signal: controller.signal })
         if(response.status !== 200) {
@@ -37,14 +39,13 @@ function useRecipeInformation(id) {
       }
 
       if (!ignore) {
-        setInfo(responseBody || {})
-        setIngredients(responseBody.extendedIngredients || [])
+        setSummary(responseBody || {})
         setLoading(false)
 
       }
     }
     if (id) {
-        fetchRecipeInfo()
+      fetchSummary()
     }
     return () => {
       ignore = true
@@ -52,7 +53,7 @@ function useRecipeInformation(id) {
     }
   }, [ id, KEY, DISABLE_API_CALLS])
 
-  return [info, ingredients, loading, error]
+  return [summary, loading, error]
 }
 
-export default useRecipeInformation
+export default useSummary

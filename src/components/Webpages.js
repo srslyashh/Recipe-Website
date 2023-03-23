@@ -206,7 +206,7 @@ const RecipeHeader = styled.div`
             top: 140px;
             left: 75px;
             font-family: 'Hepta Slab', serif;
-            color: white;
+            color: black;
             font-size: 24px;
         }
         h3{
@@ -214,7 +214,23 @@ const RecipeHeader = styled.div`
             top: 140px;
             right: 60px;
             font-family: 'Hepta Slab', serif;
-            color: white;
+            color: black;
+            font-size: 24px;
+        }
+        h4{
+            position: absolute;
+            top: 400px;
+            right: 200px;
+            font-family: 'Hepta Slab', serif;
+            color: black;
+            font-size: 24px;
+        }
+        h5{
+            position: absolute;
+            top: 400px;
+            right: 500px;
+            font-family: 'Hepta Slab', serif;
+            color: black;
             font-size: 24px;
         }
     }
@@ -243,7 +259,7 @@ const RecipeHeader = styled.div`
             top: 400px;
             left: 50px;
             font-family: 'Hepta Slab', serif;
-            color: white;
+            color: black;
             font-size: 24px;
         }
         h3{
@@ -251,7 +267,23 @@ const RecipeHeader = styled.div`
             top: 400px;
             right: 200px;
             font-family: 'Hepta Slab', serif;
-            color: white;
+            color: black;
+            font-size: 24px;
+        }
+        h4{
+            position: absolute;
+            top: 400px;
+            right: 650px;
+            font-family: 'Hepta Slab', serif;
+            color: black;
+            font-size: 24px;
+        }
+        h5{
+            position: absolute;
+            top: 400px;
+            right: 500px;
+            font-family: 'Hepta Slab', serif;
+            color: black;
             font-size: 24px;
         }
     }
@@ -297,6 +329,8 @@ export function Banner(props)
                 <h1>{props.recipe.title}</h1>
                 <h2>Author: {props.recipe.sourceName}</h2>
                 <h3>Health Score: {props.recipe.healthScore}</h3>
+                <h4>Cook Minutes: {props.recipe.cookingMinutes}</h4>
+                <h5>Servings: {props.recipe.servings}</h5>
             </RecipeHeader>
         )
     }

@@ -6,9 +6,30 @@ const breakpoints = {
 }
 
 const List = styled.ol`
+@media(min-width: 390px) and (max-width: 790px)
+{
+    padding: 5px;
+    columns: 1;
+}
+@media(min-width: 800px)
+{
     padding: 5px;
     columns: 1;
 
+}
+`
+
+const InstructionsDiv = styled.div`
+@media(min-width: 390px) and (max-width: 790px)
+{
+    position: relative;
+    
+}
+@media(min-width: 800px)
+{
+    position: relative;
+    
+}
 `
 
 const ListItem = styled.li`
@@ -29,16 +50,16 @@ const ListItem = styled.li`
 
 function InstructionsList(props) {
     return (
-      <>
+      <InstructionsDiv>
         <h1>Instructions:</h1>
         <List>
-          {props.instructions.steps.map((instruction, index) => (
+          {props.instructions.map((instruction, index) => (
             <ListItem key={index}>
                 {instruction.step}
             </ListItem>
           ))}
         </List>
-      </>
+      </InstructionsDiv>
   )
 }
 
